@@ -1,4 +1,7 @@
+import 'package:fitflare/Screens/home_page.dart';
+import 'package:fitflare/Screens/video_info_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'Screens/splash_page.dart';
 
@@ -12,7 +15,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'FitFlare',
       theme: ThemeData(

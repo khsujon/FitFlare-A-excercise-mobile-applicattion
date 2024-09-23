@@ -1,7 +1,9 @@
 import 'dart:convert';
 
+import 'package:fitflare/Screens/video_info_page.dart';
 import 'package:fitflare/constants/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,7 +16,9 @@ class _HomePageState extends State<HomePage> {
   List info = [];
   _initData() {
     DefaultAssetBundle.of(context).loadString('json/info.json').then((value) {
-      info = json.decode(value);
+      setState(() {
+        info = json.decode(value);
+      });
     });
   }
 
@@ -94,10 +98,15 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     width: 5,
                   ),
-                  Icon(
-                    Icons.arrow_forward,
-                    size: 20,
-                    color: AppColor.homePageIcons,
+                  InkWell(
+                    onTap: () {
+                      Get.to(() => VideoInfoPage());
+                    },
+                    child: Icon(
+                      Icons.arrow_forward,
+                      size: 20,
+                      color: AppColor.homePageIcons,
+                    ),
                   )
                 ],
               ),
