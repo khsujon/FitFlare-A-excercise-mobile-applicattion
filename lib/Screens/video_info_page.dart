@@ -13,8 +13,8 @@ class VideoInfoPage extends StatefulWidget {
 
 class _VideoInfoPageState extends State<VideoInfoPage> {
   List info = [];
-  _initData() {
-    DefaultAssetBundle.of(context)
+  _initData() async {
+    await DefaultAssetBundle.of(context)
         .loadString('json/videoinfo.json')
         .then((value) {
       setState(() {
@@ -209,19 +209,109 @@ class _VideoInfoPageState extends State<VideoInfoPage> {
                         )
                       ],
                     ),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Expanded(
-                        child: ListView.builder(
-                      itemCount: info.length,
-                      itemBuilder: (context, index) {
-                        return Container();
-                      },
-                    )),
+                      child: _listView(),
+                    ),
                   ],
                 ),
               ),
             )
           ],
         ),
+      ),
+    );
+  }
+
+  _listView() {
+    return ListView.builder(
+      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+      itemCount: info.length,
+      itemBuilder: (context, index) {
+        return GestureDetector(
+          onTap: () {},
+          child: _buildCard(index),
+        );
+      },
+    );
+  }
+
+  _buildCard(var index) {
+    return Container(
+      height: 130,
+      child: Column(
+        children: [
+          //1st row
+          Row(
+            children: [
+              Container(
+                width: 80,
+                height: 80,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                        image: AssetImage(info[index]['thumbnail']),
+                        fit: BoxFit.cover)),
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    info[index]['title'],
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    info[index]['time'],
+                    style: TextStyle(color: Colors.grey[500]),
+                  ),
+                ],
+              )
+            ],
+          ),
+          SizedBox(height: 15),
+          //second row
+          Row(
+            children: [
+              Container(
+                width: 80,
+                height: 20,
+                decoration: BoxDecoration(
+                    color: Color(0xFFeaeefc),
+                    borderRadius: BorderRadius.circular(10)),
+                child: Center(
+                  child: Text(
+                    '15s rest',
+                    style: TextStyle(color: Color(0xFF839fed)),
+                  ),
+                ),
+              ),
+              Row(
+                children: [
+                  for (int i = 0; i < 80; i++)
+                    Container(
+                      height: 3,
+                      width: 3,
+                      decoration: BoxDecoration(
+                          color: i.isEven ? Color(0xFF839fed) : Colors.white,
+                          borderRadius: BorderRadius.circular(2)),
+                    )
+                ],
+              )
+            ],
+          )
+        ],
       ),
     );
   }
