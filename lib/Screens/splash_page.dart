@@ -23,17 +23,17 @@ class _SplashPageState extends State<SplashPage>
     super.initState();
 
     // Trigger opacity animation after a small delay
-    Future.delayed(Duration(milliseconds: 200), () {
+    Future.delayed(const Duration(milliseconds: 200), () {
       setState(() {
         _opacity = 1.0; // Full opacity after delay
       });
     });
 
-    Timer(Duration(seconds: 4), () {
+    Timer(const Duration(seconds: 4), () {
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => HomePage(),
+            builder: (context) => const HomePage(),
           ));
     });
   }
@@ -48,8 +48,8 @@ class _SplashPageState extends State<SplashPage>
           Center(
             child: AnimatedOpacity(
               opacity: _opacity, // Animate opacity from 0 to 1
-              duration:
-                  Duration(seconds: 3), // Duration of the fade-in animation
+              duration: const Duration(
+                  seconds: 3), // Duration of the fade-in animation
               child: Lottie.asset("assets/annimation/splash_screen.json"),
             ),
           ),
@@ -57,7 +57,7 @@ class _SplashPageState extends State<SplashPage>
             animatedTexts: [
               WavyAnimatedText(
                 'Fit Flare',
-                textStyle: TextStyle(
+                textStyle: const TextStyle(
                   color: Colors.blue,
                   fontSize: 18,
                   fontWeight: FontWeight.bold,

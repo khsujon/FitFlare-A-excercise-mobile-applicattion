@@ -24,14 +24,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _initData();
   }
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: AppColor.homePageBackground,
@@ -49,13 +47,13 @@ class _HomePageState extends State<HomePage> {
                         color: AppColor.homePageTitle,
                         fontWeight: FontWeight.w700),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Icon(
                     Icons.arrow_back_ios,
                     size: 20,
                     color: AppColor.homePageIcons,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Icon(
@@ -63,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                     size: 20,
                     color: AppColor.homePageIcons,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 15,
                   ),
                   Icon(
@@ -87,7 +85,7 @@ class _HomePageState extends State<HomePage> {
                         color: AppColor.homePageSubtitle,
                         fontWeight: FontWeight.w700),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Text(
                     'Details',
                     style: TextStyle(
@@ -95,12 +93,12 @@ class _HomePageState extends State<HomePage> {
                       color: AppColor.homePageDetail,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   InkWell(
                     onTap: () {
-                      Get.to(() => VideoInfoPage());
+                      Get.to(() => const VideoInfoPage());
                     },
                     child: Icon(
                       Icons.arrow_forward,
@@ -136,12 +134,12 @@ class _HomePageState extends State<HomePage> {
                     ),
                     boxShadow: [
                       BoxShadow(
-                          offset: Offset(5, 15),
+                          offset: const Offset(5, 15),
                           blurRadius: 20,
                           color: AppColor.gradientSecond.withOpacity(0.2))
                     ]),
                 child: Container(
-                  padding: EdgeInsets.only(left: 20, top: 25, right: 20),
+                  padding: const EdgeInsets.only(left: 20, top: 25, right: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -197,7 +195,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ],
                           ),
-                          Spacer(),
+                          const Spacer(),
                           Container(
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(60),
@@ -205,7 +203,7 @@ class _HomePageState extends State<HomePage> {
                                   BoxShadow(
                                     color: AppColor.gradientFirst,
                                     blurRadius: 10,
-                                    offset: Offset(4, 8),
+                                    offset: const Offset(4, 8),
                                   )
                                 ]),
                             child: Icon(
@@ -226,7 +224,7 @@ class _HomePageState extends State<HomePage> {
               ),
 
               //HomePge 2nd Card
-              Container(
+              SizedBox(
                 height: 180,
                 width: width,
                 child: Stack(
@@ -235,10 +233,10 @@ class _HomePageState extends State<HomePage> {
                     Container(
                       width: width,
                       height: 120,
-                      margin: EdgeInsets.only(top: 30),
+                      margin: const EdgeInsets.only(top: 30),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          image: DecorationImage(
+                          image: const DecorationImage(
                               image: AssetImage(
                                 'assets/card.jpg',
                               ),
@@ -246,12 +244,12 @@ class _HomePageState extends State<HomePage> {
                           boxShadow: [
                             BoxShadow(
                                 blurRadius: 40,
-                                offset: Offset(8, 10),
+                                offset: const Offset(8, 10),
                                 color:
                                     AppColor.gradientSecond.withOpacity(0.3)),
                             BoxShadow(
                                 blurRadius: 10,
-                                offset: Offset(-1, -5),
+                                offset: const Offset(-1, -5),
                                 color:
                                     AppColor.gradientSecond.withOpacity(0.3)),
                           ]),
@@ -261,10 +259,10 @@ class _HomePageState extends State<HomePage> {
                     Container(
                       height: 200,
                       width: width,
-                      margin: EdgeInsets.only(right: 200, bottom: 30),
+                      margin: const EdgeInsets.only(right: 200, bottom: 30),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
+                        image: const DecorationImage(
                           image: AssetImage(
                             'assets/figure.png',
                           ),
@@ -276,7 +274,7 @@ class _HomePageState extends State<HomePage> {
                     Container(
                       width: double.maxFinite,
                       height: 100,
-                      margin: EdgeInsets.only(left: 140, top: 40),
+                      margin: const EdgeInsets.only(left: 140, top: 40),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -287,7 +285,7 @@ class _HomePageState extends State<HomePage> {
                                 fontWeight: FontWeight.bold,
                                 color: AppColor.homePageDetail),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
                           RichText(
@@ -296,7 +294,7 @@ class _HomePageState extends State<HomePage> {
                                 style: TextStyle(
                                     fontSize: 16,
                                     color: AppColor.homePagePlanColor),
-                                children: [
+                                children: const [
                                   TextSpan(text: 'stick to your plan')
                                 ]),
                           )
@@ -339,8 +337,8 @@ class _HomePageState extends State<HomePage> {
                         Container(
                           height: 150,
                           width: 150,
-                          padding: EdgeInsets.only(bottom: 5),
-                          margin: EdgeInsets.only(top: 10),
+                          padding: const EdgeInsets.only(bottom: 5),
+                          margin: const EdgeInsets.only(top: 10),
                           decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(15),
@@ -350,12 +348,12 @@ class _HomePageState extends State<HomePage> {
                               boxShadow: [
                                 BoxShadow(
                                     blurRadius: 3,
-                                    offset: Offset(5, 5),
+                                    offset: const Offset(5, 5),
                                     color: AppColor.gradientSecond
                                         .withOpacity(0.1)),
                                 BoxShadow(
                                     blurRadius: 3,
-                                    offset: Offset(-5, -5),
+                                    offset: const Offset(-5, -5),
                                     color: AppColor.gradientSecond
                                         .withOpacity(0.1))
                               ]),
